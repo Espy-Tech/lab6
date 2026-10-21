@@ -1,11 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lab6</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Калькулятор стоимости услуги</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <main class="card">
+        <h1>Калькулятор стоимости услуги</h1>
+        <form id="calc-form">
+            <div class="field">
+                <label class="title" for="quantity">Количество</label>
+                <input id="quantity" name="quantity" type="number" value="1"
+                    min="1" step="1" inputmode="numeric" required>
+            </div>
+
+            <fieldset>
+                <legend>Тип услуги</legend>
+                <label class="radio">
+                    <input type="radio" name="service" value="1" checked>
+                    Консультация — 1000 ₽
+                </label>
+                <label class="radio">
+                    <input type="radio" name="service" value="2">
+                    Создание статического сайта — 10000 ₽
+                </label>
+                <label class="radio">
+                    <input type="radio" name="service" value="3">
+                    Техническая поддержка — 500 ₽
+                </label>
+            </fieldset>
+
+            <div class="field" id="option-block" hidden>
+                <label class="title" for="option">Опция</label>
+                <select id="option" name="option">
+                    <option value="0">Одностраничный сайт (+0 ₽)</option>
+                    <option value="3000">Многостраничный статический сайт (+3000 ₽)</option>
+                    <option value="2000">Статический сайт с галереей (+2000 ₽)</option>
+                </select>
+            </div>
+
+            <div class="field" id="property-block" hidden>
+                <label class="checkbox">
+                    <input type="checkbox" id="property" name="property">
+                    Срочное выполнение (+1000 ₽)
+                </label>
+            </div>
+        </form>
+        <div id="result" aria-live="polite"></div>
+    </main>
 </body>
 </html>
